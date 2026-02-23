@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<style>
+     body { 
+    font-family: 'Poppins', sans-serif; 
+    background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%); /* Black Gradient */
+    color: #f8fafc; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Background madhe ek light effect denyasathi */
+body::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: rgba(56, 189, 248, 0.15);
+    filter: blur(80px);
+    border-radius: 50%;
+    top: 10%;
+    left: 20%;
+    z-index: -1;
+}
+
+.card { 
+    background: rgba(255, 255, 255, 0.05); /* Transparent look */
+    backdrop-filter: blur(15px); /* Blurry Glass effect */
+    padding: 40px; 
+    border-radius: 24px; 
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.8); /* Darker shadow */
+    width: 380px; 
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+h2 { 
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    background: linear-gradient(to right, #38bdf8, #818cf8); /* Blue to Purple Text Gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+input { 
+    width: 90%; 
+    padding: 14px; 
+    margin: 12px 0; 
+    border-radius: 12px; 
+    border: 1px solid rgba(255, 255, 255, 0.1); 
+    background: rgba(255, 255, 255, 0.05); /* Light transparent input */
+    color: #fff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+}
+
+input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+button { 
+    width: 100%; 
+    padding: 15px; 
+    margin-top: 20px;
+    background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%); /* Vibrant Blue Gradient */
+    color: white; 
+    border: none; 
+    border-radius: 12px; 
+    cursor: pointer; 
+    font-weight: 600; 
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+button:hover { 
+    filter: brightness(1.1);
+    box-shadow: 0 10px 20px -5px rgba(14, 165, 233, 0.5);
+    transform: scale(1.02);
+}
+    </style>
+<body>
+
+<div class="card">
+        <h2>Attendance Tracker</h2>
+        <form action="HomeServlet" method="POST">
+            <input type="number" name="available" placeholder="Available Attendance" required>
+            <input type="number" name="total" placeholder="Total Attendance" required>
+            <button type="submit">Check Eligibility</button>
+        </form>
+    </div>
+</body>
+</html>
